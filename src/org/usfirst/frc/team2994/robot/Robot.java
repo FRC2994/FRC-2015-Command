@@ -32,7 +32,6 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     Compressor compressor;
-    SendableChooser chooser;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -40,9 +39,6 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
-        chooser = new SendableChooser();
-//        chooser.addObject("My Auto", new MyAutoCommand());
-        SmartDashboard.putData("Auto mode", chooser);
         
         // Initialize subsystems
         driveTrain = new DriveTrain();
@@ -75,18 +71,7 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        autonomousCommand = (Command) chooser.getSelected();
-
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		switch(autoSelected) {
-		case "My Auto":
-			autonomousCommand = new MyAutoCommand();
-			break;
-		case "Default Auto":
-		default:
-			autonomousCommand = new ExampleCommand();
-			break;
-		} */
+        // TODO set the autonomous command
     	
     	// schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
